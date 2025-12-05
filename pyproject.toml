@@ -50,5 +50,5 @@ disallow_untyped_defs = true
 
 [tool.black]
 line-length = 88
-target-version = ['py313']
+target-version = ['py312']
 skip-string-normalization = true

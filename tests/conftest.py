@@ -1,25 +1,28 @@
-"""
-Test configuration and fixtures for hex-o-spell experiment.
-"""
+from pathlib import Path
+
 import pytest
+
+from src.data_manager import DataManager
+from src.egg_headset import EggHeadset
+from src.gui import GUIManager
 
 
 @pytest.fixture
-def sample_gui_manager():
+def sample_gui_manager() -> GUIManager:
     """Sample GUI manager for testing."""
-    from src.gui import GUIManager
+
     return GUIManager(width=400, height=300)
 
 
 @pytest.fixture
-def sample_egg_headset():
+def sample_egg_headset() -> EggHeadset:
     """Sample egg headset for testing."""
-    from src.egg_headset import EggHeadset
+
     return EggHeadset(device_address="mock_device")
 
 
 @pytest.fixture
-def sample_data_manager(tmp_path):
+def sample_data_manager(tmp_path: Path) -> DataManager:
     """Sample data manager for testing with temporary directory."""
-    from src.data_manager import DataManager
-    return DataManager(data_dir=tmp_path)
+
+    return DataManager(data_dir=str(tmp_path))
