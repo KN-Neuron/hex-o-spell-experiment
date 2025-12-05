@@ -1,0 +1,2 @@
+class TestIntegration:
+    pass
